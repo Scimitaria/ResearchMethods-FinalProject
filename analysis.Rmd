@@ -1,17 +1,35 @@
+---
+title: "ANES2024 Analysis"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Name: Morgan Powers
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r, echo=FALSE}
 options(repos = "https://cran.rstudio.com")
 source("data.r")
 
 printf <- function(desc,dat){
     print(noquote(paste0(desc,": ",dat)))
 }
+prints <- function(str){
+    cat(noquote(str))
+}
+```
 
+#### Candidate thermometer ratings
+```{r, echo=FALSE}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
 printf("mean Trump thermometer rating",mean(anes$trumpTherm,na.rm=T))
-cat("
-  ####################
- ## Economic worry ##
-####################
-")
+```
+
+#### Economic Worry
+```{r, echo=FALSE}
 cat(noquote("Voters who consider themselves liberal but voted for Trump\nfrom most to least worried about their financial situation."))
 print(table(leftTheLeft$worry))
 cat(noquote("Voters who consider themselves conservative but voted for Harris\nfrom most to least worried about their financial situation."))
@@ -21,3 +39,4 @@ print(table(switched$worry))
 worry <- c(1,2,3,4,5)
 worriers <- c(7,10,27,55,75)
 summary(lm(worriers ~ worry))
+```
