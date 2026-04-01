@@ -5,38 +5,49 @@ output:
   html_document: default
 ---
 
-Name: Morgan Powers
+**Name:** Morgan Powers<br>
+**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?<br>
+**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.<br>
+**Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/<br>
+<small>Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. The link itself takes you to a directory with all of the project files. Clicking on one of the files takes you to the code/data, with an opportunity to download the file. If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.</small>
+<br>Documentation of variable declarations is in data.r.<br><br>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-```{r, echo=FALSE}
-options(repos = "https://cran.rstudio.com")
+knitr::opts_chunk$set(echo = FALSE)
 source("data.r")
-
-printf <- function(desc,dat){
-    print(noquote(paste0(desc,": ",dat)))
-}
-prints <- function(str){
-    cat(noquote(str))
-}
 ```
 
 #### Candidate thermometer ratings
-```{r, echo=FALSE}
+```{r}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
 printf("mean Trump thermometer rating",mean(anes$trumpTherm,na.rm=T))
 ```
 
 #### Economic Worry
-```{r, echo=FALSE}
-cat(noquote("Voters who consider themselves liberal but voted for Trump\nfrom most to least worried about their financial situation."))
-print(table(leftTheLeft$worry))
-cat(noquote("Voters who consider themselves conservative but voted for Harris\nfrom most to least worried about their financial situation."))
-print(table(renouncedTheRight$worry))
-cat(noquote("Voters who voted against their ideological bias\nfrom most to least worried about their financial situation."))
-print(table(switched$worry))
-worry <- c(1,2,3,4,5)
-worriers <- c(7,10,27,55,75)
-summary(lm(worriers ~ worry))
+```{r}
+prints("Voters who consider themselves liberal but voted for Trump from most to least worried about their financial situation.")
+print(table(anes$leftTheLeft,anes$worry))
+prints("Voters who consider themselves conservative but voted for Harris from most to least worried about their financial situation.")
+print(table(anes$renouncedTheRight,anes$worry))
+prints("Voters who voted against their ideological bias from most to least worried about their financial situation.")
+print(table(anes$switch,anes$worry))
+prints("Correlation of the count of switch voters and financial worry level")
+#lm(switch ~ worry,data=anes)
+cor.test(anes$worry,anes$switch,use="complete.obs")
 ```
+Voters’ level of worry about their financial situation (ANES$V241539) displays a statistically significant inverse correlation with status as a switch voter (p-value of 0.0224, coefficient estimate of 0.0078, bearing in mind that higher values of V241539 represent lower levels of worry).
+In other words, people who feel secure in their finances were slightly more likely to be switch voters.
+However, as evidenced by the low correlation coefficient, the trend is not very strong.
+<br>
+#### Importance of Crime
+```{r}
+prints("Voters who consider themselves liberal but voted for Trump from most to least worried about crime.")
+print(table(anes$leftTheLeft,anes$crime))
+prints("Voters who consider themselves conservative but voted for Harris from most to least worried about crime.")
+print(table(anes$renouncedTheRight,anes$crime))
+prints("Voters who voted against their ideological bias from most to least worried about crime.")
+print(table(anes$switch,anes$crime))
+prints("Correlation of the count of switch voters and importance of crime")
+cor.test(anes$crime,anes$switch,use="complete.obs")
+```
+While this data does display a negative correlation (switch voters placing more importance on crime), the p-value is 0.43, so the correlation is not significant.
