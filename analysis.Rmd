@@ -58,9 +58,25 @@ Reinforcing the weakness of this correlation is the p-value of 0.0346 - statisti
 
 #### Foreign Policy
 ```{r}
+prints("Voters who consider themselves liberal but voted for Trump from most to least supportive of Ukraine.")
+print(table(anes$leftTheLeft,anes$ukraine))
+prints("Voters who consider themselves conservative but voted for Harris from least to most supportive of Ukraine.")
+print(table(anes$renouncedTheRight,anes$ukraine))
+prints("Voters who voted against their ideological bias from least to most supportive of Ukraine.")
+print(table(anes$switch,anes$ukraine))
+prints("Correlation of the count of switch voters and support of Ukraine.")
+cor.test(anes$ukraine,anes$switch,use="complete.obs")
 
+prints("Voters who consider themselves liberal but voted for Trump from least to most supportive of Israel.")
+print(table(anes$leftTheLeft,anes$israel))
+prints("Voters who consider themselves conservative but voted for Harris from least to most supportive of Israel.")
+print(table(anes$renouncedTheRight,anes$israel))
+prints("Voters who voted against their ideological bias from least to most supportive of Israel.")
+print(table(anes$switch,anes$israel))
+prints("Correlation of the count of switch voters and support of Israel.")
+cor.test(anes$israel,anes$switch,use="complete.obs")
 ```
-
+Both questions have a substantial portion of NA values, which leads to a small sample size, high p-value, low correlation coefficient, and weak correlation.
 <br>
 
 #### Importance of Crime
