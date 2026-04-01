@@ -22,6 +22,7 @@ source("data.r")
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
 printf("mean Trump thermometer rating",mean(anes$trumpTherm,na.rm=T))
 ```
+<br>
 
 #### Economic Worry
 ```{r}
@@ -39,6 +40,29 @@ Voters’ level of worry about their financial situation (ANES$V241539) displays
 In other words, people who feel secure in their finances were slightly more likely to be switch voters.
 However, as evidenced by the low correlation coefficient, the trend is not very strong.
 <br>
+
+#### Education level
+```{r}
+prints("Voters who consider themselves liberal but voted for Trump from least to most educated.")
+print(table(anes$leftTheLeft,anes$education))
+prints("Voters who consider themselves conservative but voted for Harris from least to most educated.")
+print(table(anes$renouncedTheRight,anes$education))
+prints("Voters who voted against their ideological bias from least to most educated.")
+print(table(anes$switch,anes$education))
+prints("Correlation of the count of switch voters and education.")
+cor.test(anes$education,anes$switch,use="complete.obs")
+```
+Education level has a weak negative correlation (-0.0346) with switch voter status, meaning that less educated voters are slightly more likely to be switch voters.
+Reinforcing the weakness of this correlation is the p-value of 0.0346 - statistically significant, but only just.
+<br>
+
+#### Foreign Policy
+```{r}
+
+```
+
+<br>
+
 #### Importance of Crime
 ```{r}
 prints("Voters who consider themselves liberal but voted for Trump from most to least worried about crime.")
@@ -51,3 +75,17 @@ prints("Correlation of the count of switch voters and importance of crime")
 cor.test(anes$crime,anes$switch,use="complete.obs")
 ```
 While this data does display a negative correlation (switch voters placing more importance on crime), the p-value is 0.43, so the correlation is not significant.
+<br>
+
+#### Immigration levels
+```{r}
+prints("Voters who consider themselves liberal but voted for Trump from most to least pro-immigration.")
+print(table(anes$leftTheLeft,anes$immigrants))
+prints("Voters who consider themselves conservative but voted for Harris from most to least pro-immigration.")
+print(table(anes$renouncedTheRight,anes$immigrants))
+prints("Voters who voted against their ideological bias from most to least pro-immigration.")
+print(table(anes$switch,anes$immigrants))
+prints("Correlation of the count of switch voters and support of immigration.")
+cor.test(anes$immigrants,anes$switch,use="complete.obs")
+```
+With a p-value of 0.92, a correlation coefficient of -0.004, and somehow a substantially lower sample size than prior issues, we cannot establish any correlation between switch voter status and opinions on immigration.

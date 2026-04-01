@@ -19,14 +19,22 @@ numericize <- function(lst,cond){ as.numeric(lst == cond) }
 #Trump and Harris feeling thermometers
 anes$harrisTherm <- ifelse(anes$V241156<0 | anes$V241156>100,NA,anes$V241156)
 anes$trumpTherm <- ifelse(anes$V241157<0 | anes$V241157>100,NA,anes$V241157)
-#who n voted for - 1: Harris; 2: Trump; other
+#who R voted for - 1: Harris; 2: Trump; other
 anes$voted <- ifelse(anes$V242067>2,"Other",ifelse(anes$V242067<0,NA,anes$V242067))
 #7-pt scale; lower is liberal
 anes$bias <- ifelse(anes$V241177<0 | anes$V241177>7,NA,anes$V241177)
 #financial worry; lower is more worried
 anes$worry <- ifelse(anes$V241539 < 0,NA,anes$V241539)
+#16-point scale; lower means less educated
+anes$education <- ifelse(anes$V241463<0 | anes$V241463>16,NA,anes$V241463)
+#5-point scale; lower means favoring aid to Ukraine
+anes$ukraine <- ifelse(anes$V241740 < 0,NA,anes$V241740)
+#5-point scale; lower means favoring aid to Israel
+anes$israel <- ifelse(anes$V241741 < 0,NA,anes$V241741)
 #5-point scale; lower means crime is more important
 anes$crime <- ifelse(anes$V242177 < 0,NA,anes$V242177)
+#5-point scale; lower means favoring more immigrants
+anes$immigrants <- ifelse(anes$V241747 < 0,NA,anes$V241747)
 
   ################
  ## Assemblage ##
