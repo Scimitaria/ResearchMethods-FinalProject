@@ -23,7 +23,7 @@ anes$trumpTherm <- ifelse(anes$V241157<0 | anes$V241157>100,NA,anes$V241157)
 anes$voted <- ifelse(anes$V242067>2,"Other",ifelse(anes$V242067<0,NA,anes$V242067))
 #7-pt scale; lower is liberal
 anes$bias <- ifelse(anes$V241177<0 | anes$V241177>7,NA,anes$V241177)
-#financial worry; lower is more worried
+#5-point scale of inancial worry; lower is more worried
 anes$worry <- ifelse(anes$V241539 < 0,NA,anes$V241539)
 #16-point scale; lower means less educated
 anes$education <- ifelse(anes$V241463<0 | anes$V241463>16,NA,anes$V241463)
@@ -41,6 +41,13 @@ anes$immigrants <- ifelse(anes$V241747 < 0,NA,anes$V241747)
 ################
 #1 if they prefer Harris to Trump else 0
 anes$pref <- ifelse(anes$V241156>anes$V241157,1,0)
+#prefer Harris, voted for Trump
+anes$prefHarrisVoteTrump <- as.numeric(as.logical(anes$pref) & anes$voted==2)
+#prefer Trump, voted for Harris
+anes$prefTrumpVoteHarris <- as.numeric((!as.logical(anes$pref)) & anes$voted==1)
+#all people who voted against their preference
+anes$prefSwitch <- as.numeric(anes$prefHarrisVoteTrump | anes$prefTrumpVoteHarris)
+
 #politically liberal, voted for Trump
 anes$leftTheLeft <- as.numeric(anes$bias<4 & anes$voted == 2)
 #politically conservative, voted for Harris

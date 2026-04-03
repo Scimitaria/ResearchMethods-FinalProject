@@ -5,22 +5,34 @@ output:
   html_document: default
 ---
 
-**Name:** Morgan Powers<br>
-**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?<br>
-**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.<br>
-**Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/<br>
-<small>Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. The link itself takes you to a directory with all of the project files. Clicking on one of the files takes you to the code/data, with an opportunity to download the file. If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.</small>
-<br>Documentation of variable declarations is in data.r.<br><br>
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 source("data.r")
 ```
 
-#### Candidate thermometer ratings
+**Name:** Morgan Powers<br>
+**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?<br>
+**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.<br>
+**Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/<br>
+<small>Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. 
+The link itself takes you to a directory with all of the project files. 
+Clicking on one of the files takes you to the code/data, with an opportunity to download the file. 
+If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.</small><br>
+**Variables:** The independent variables I will focus on will be economic worry (a 5-point scale in descending order of worry), education (a 16-point scale from least to most educated), support for aid to Ukraine and Israel (each a 5-point scale in decreasing order of support), importance of crime (a 5-point scale in decreasing order of importance), and support for immigration (a 5-point scale in decreasing order of support).
+<br>I have made tables of two potential dependent variables (people who voted for a candidate despite having a higher thermometer rating for the other, and people who voted for a candidate despite favoring policies they ideologically agree with) in the Preliminary Data section.
+I elected to go with the latter for my dependent variable, as it has almost double the sample size (223 vs 116). 223 is still worryingly small, but it'll do for a start.
+As I'm using the ANES, my unit of analysis is an individual respondent.<br>
+**Methodology:** For the moment I'm using cor.test, as it provides both a correlation coefficient and p-value, allowing me to measure relationship magnitude, direction, and significance.<br>
+<br>
+
+#### Preliminary Data
 ```{r}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
 printf("mean Trump thermometer rating",mean(anes$trumpTherm,na.rm=T))
+prints("Voters who went against thermometer preference:")
+table(anes$prefSwitch)
+prints("Voters who went against ideological lean:")
+table(anes$switch)
 ```
 <br>
 
