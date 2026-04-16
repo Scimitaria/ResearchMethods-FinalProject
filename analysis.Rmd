@@ -12,6 +12,14 @@ source("data.r")
 
 **Name:** Morgan Powers<br>
 **Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?<br>
+
+## Abstract - TODO
+
+## Introduction - TODO
+
+## Literature Review - TODO
+
+## Theory and Hypotheses <br>
 **Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.<br>
 **Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/<br>
 <small>Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. 
@@ -25,6 +33,7 @@ As I'm using the ANES, my unit of analysis is an individual respondent.<br>
 **Methodology:** For the moment I'm using cor.test, as it provides both a correlation coefficient and p-value, allowing me to measure relationship magnitude, direction, and significance.<br>
 <br>
 
+## Data and Methods
 #### Preliminary Data
 ```{r}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
@@ -117,3 +126,7 @@ prints("Correlation of the count of switch voters and support of immigration.")
 cor.test(anes$immigrants,anes$switch,use="complete.obs")
 ```
 With a p-value of 0.92, a correlation coefficient of -0.004, and somehow a substantially lower sample size than prior issues, we cannot establish any correlation between switch voter status and opinions on immigration.
+
+## Results
+
+## Conclusion
