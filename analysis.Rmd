@@ -10,30 +10,33 @@ knitr::opts_chunk$set(echo = FALSE)
 source("data.r")
 ```
 
-**Name:** Morgan Powers<br>
-**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?<br>
+**Name:** Morgan Powers
 
 ## Abstract - TODO
+**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?
+
 
 ## Introduction - TODO
 
 ## Literature Review - TODO
 
-## Theory and Hypotheses <br>
-**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.<br>
-**Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/<br>
-<small>Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. 
+## Theory and Hypotheses - WRITE MORE
+**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.\
+**Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/ \
+<small>
+Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. 
 The link itself takes you to a directory with all of the project files. 
 Clicking on one of the files takes you to the code/data, with an opportunity to download the file. 
-If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.</small><br>
-**Variables:** The independent variables I will focus on will be economic worry (a 5-point scale in descending order of worry), education (a 16-point scale from least to most educated), support for aid to Ukraine and Israel (each a 5-point scale in decreasing order of support), importance of crime (a 5-point scale in decreasing order of importance), and support for immigration (a 5-point scale in decreasing order of support).
-<br>I have made tables of two potential dependent variables (people who voted for a candidate despite having a higher thermometer rating for the other, and people who voted for a candidate despite favoring policies they ideologically agree with) in the Preliminary Data section.
-I elected to go with the latter for my dependent variable, as it has almost double the sample size (223 vs 116). 223 is still worryingly small, but it'll do for a start.
-As I'm using the ANES, my unit of analysis is an individual respondent.<br>
-**Methodology:** For the moment I'm using cor.test, as it provides both a correlation coefficient and p-value, allowing me to measure relationship magnitude, direction, and significance.<br>
-<br>
+If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.
+</small>
 
-## Data and Methods
+**Variables:** The independent variables I will focus on will be economic worry (a 5-point scale in descending order of worry), education (a 16-point scale from least to most educated), support for aid to Ukraine and Israel (each a 5-point scale in decreasing order of support), importance of crime (a 5-point scale in decreasing order of importance), and support for immigration (a 5-point scale in decreasing order of support).\
+I have made tables of two potential dependent variables (people who voted for a candidate despite having a higher thermometer rating for the other, and people who voted for a candidate despite favoring policies they ideologically agree with) in the Preliminary Data section.
+I elected to go with the latter for my dependent variable, as it has almost double the sample size (223 vs 116). 223 is still worryingly small, but it'll do for a start.
+As I'm using the ANES, my unit of analysis is an individual respondent.\
+**Methodology:** For the moment I'm using cor.test, as it provides both a correlation coefficient and p-value, allowing me to measure relationship magnitude, direction, and significance.\
+
+## Data and Methods - WRITE MORE
 #### Preliminary Data
 ```{r}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
@@ -43,7 +46,7 @@ table(anes$prefSwitch)
 prints("Voters who went against ideological lean:")
 table(anes$switch)
 ```
-<br>
+\
 
 #### Economic Worry
 ```{r}
@@ -60,7 +63,7 @@ cor.test(anes$worry,anes$switch,use="complete.obs")
 Voters’ level of worry about their financial situation (ANES$V241539) displays a statistically significant inverse correlation with status as a switch voter (p-value of 0.0224, coefficient estimate of 0.0078, bearing in mind that higher values of V241539 represent lower levels of worry).
 In other words, people who feel secure in their finances were slightly more likely to be switch voters.
 However, as evidenced by the low correlation coefficient, the trend is not very strong.
-<br>
+\
 
 #### Education level
 ```{r}
@@ -75,7 +78,7 @@ cor.test(anes$education,anes$switch,use="complete.obs")
 ```
 Education level has a weak negative correlation (-0.0346) with switch voter status, meaning that less educated voters are slightly more likely to be switch voters.
 Reinforcing the weakness of this correlation is the p-value of 0.0346 - statistically significant, but only just.
-<br>
+\
 
 #### Foreign Policy
 ```{r}
@@ -98,7 +101,7 @@ prints("Correlation of the count of switch voters and support of Israel.")
 cor.test(anes$israel,anes$switch,use="complete.obs")
 ```
 Both questions have a substantial portion of NA values, which leads to a small sample size, high p-value, low correlation coefficient, and weak correlation.
-<br>
+\
 
 #### Importance of Crime
 ```{r}
@@ -112,7 +115,7 @@ prints("Correlation of the count of switch voters and importance of crime")
 cor.test(anes$crime,anes$switch,use="complete.obs")
 ```
 While this data does display a negative correlation (switch voters placing more importance on crime), the p-value is 0.43, so the correlation is not significant.
-<br>
+\
 
 #### Immigration levels
 ```{r}
@@ -126,7 +129,14 @@ prints("Correlation of the count of switch voters and support of immigration.")
 cor.test(anes$immigrants,anes$switch,use="complete.obs")
 ```
 With a p-value of 0.92, a correlation coefficient of -0.004, and somehow a substantially lower sample size than prior issues, we cannot establish any correlation between switch voter status and opinions on immigration.
+\
 
-## Results
+#### Multivariate OLS
+```{r}
+summary(lm(formula = switch ~ worry + education + ukraine + israel + crime + immigrants, data=anes))
+```
+None of the coefficients are statistically significant.
 
-## Conclusion
+## Results - TODO
+
+## Conclusion - TODO
