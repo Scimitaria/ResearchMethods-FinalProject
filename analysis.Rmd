@@ -12,31 +12,103 @@ source("data.r")
 
 **Name:** Morgan Powers
 
-## Abstract - TODO
-**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?
+## Abstract
+**Research Question:** What factors influence voters to support a candidate who does not align with their partisan ideology?\
+\
+This question is important because it influences politicians' ability to win elections.
+With electoral margins in American politics as close as they have been for decades, taking only about 5% of voters from the opposition's base would virtually guarantee future success.\
+\
+My theory is that the issues most frequently rated as important by voters (such as the economy, foreign policy, and immigration) will have the biggest impact.\
+\
+I test this theory by establishing which voters voted against their ideological bias, then running correlation tests on each variable, then using a multivariate OLS model to see the effect.\
+\
+There was a marginal positive correlation between perceived economic security and switch voter status,
+and a slight negative correlation between education level and switch voter status.
+None of the coefficients in the OLS model had statistically significant p-values.\
 
+## Introduction
+The 2024 election is one I have frequently seen described as one characterized by people voting against their partisan affiliation.
+Trump made substantial gains among minorities from 2020 to 2024, a change to which his victory is largely attributed.
+Meanwhile, many traditional Republicans (white-collar fiscal conservatives) found themselves disgusted with Trump's childish behavior and economically liberal policies, and opted to vote for the Democrats.\
+\
+Understanding this change is important. Trump won the popular vote by a bare 1.5%; it would not have taken much for Harris to win instead.
+By capturing around 5% of their opponents' base of support, either party could secure electoral victory for the forseeable future.\
+\
+While aggregate data is unfortunately no longer as easily accessed as it once was, 
+due to Disney in all its wisdom murdering 538, 
+the most important issues in 2024 were generally the economy, foreign policy, immigration, and crime.
+I will be examining these variables, as well as education level, as while the latter is not a political issue it does have a major impact on political decisions.\
+\
+I will begin by examining some existing literature on this topic, and identifying areas where information is lacking.
+I will then quantify the variables at issue by formatting their columns in the ANES2024 dataset.
+After this, I will run correlation tests with switch voter status for each issue, before creating a multivariate OLS model to establish overall correlation.
+I will then state my results and conclusions derived.\
 
-## Introduction - TODO
+## Literature Review
+"People who are high in defensive confidence [their ability to defend their political views] are more likely to examine counter-attudinal information and, as a result, change those attitudes.
+This finding contradicts the common wisdom that compared to individuals who doubt their defensive abilities, those who are confident will be *less* likely to change their attitudes" (Aldrich et al, 46).
+Furthermore, an analysis of the 2006 midterm ANES data showed "that one's confidence in being able to defend against challenges to one's attitudes increases the likelihood of changing preferences by defecting from a political party" (Ibid, 55).
+It goes without saying that this is highly pertinent to the project at hand.
 
-## Literature Review - TODO
+Ferreira's research confirmed "a relationship between the electoral and party face or presidentialization" (De Silva, 811).
+Johann et al concurred that "personal campaign efforts pay off. It almost seems as if interpersonal party contact“shuts down” people’s defense mechanisms with regard to information selection and processing, and thus makes them more susceptible to persuasion efforts" (Johann et al, 275).
+The Republicans had no issue with this - Trump had been the undisputed face of the party since 2016.
+The Democrats, on the other hand, were severely weakened by their failure in this area.
+Even while still president, Biden lacked a strong leadership presence.
+After his undignified exit from the race, Harris had virtually no time to establish her own image, and in any case failed to do so.
+One of Trump's most clear-cut points of victory was therefore his strong public image.\
 
-## Theory and Hypotheses - WRITE MORE
-**Hypothesis:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have high correlations.\
+Racial lines and religion can also affect voter behavior. 
+"Non-white respondents typically preferred Democratic candidates" (Best, Kreuger 131).
+However, while "Christian nationalism often shapes the political views of Black and White Americans differently, particularly on racial justice issues, inclining White Americans toward more reactionary views while often inclining Black Americans toward more progressive views",
+it "can operate similarly for Black and White Americans on “moral issues,” to the Republican Party’s benefit." (Perry, Schmidgall 3073).
+Specifically, Christian nationalism moved Black Americans rightward on issues like abortion.
+Fraga notes that "rates of participation for African Americans, Latinos, and Asian Americans lagged behind that of Whites for most of American history"
+and that even today, "Latino and Asian American turnout is as much as twenty percentage points lower than White and Black turnout" (Fraga, 73).\
+
+Ward points out that "neither 2024 candidate established a strong, compelling antipoverty platform" (894).
+Considering the importance of economic issues to voters, this was a major failing of both campaigns.
+However, due to her affiliation with the incumbent administration, 
+Harris would have been hurt more by her failure to convince on affordability.
+Considering that "respondents who perceive the national economy to be performing well tend to prefer candidates from the party controlling the White House, whereas respondents who perceive the national economy is performing badly typically choose candidates from the out party" (Best, Kreuger 160),
+Trump just had to promise generic change, and he would win a fair portion of low-income voters.
+As it happens, Trump's populist rhetoric was a strong factor in him winning with voters on the economy (Perry et al, 230).
+It's worth noting that national economic data cannot necessarily explain this factor,
+as ""macroeconomic" figures fail woefully when it comes to explaining to individuals and their families why some people benefit while others suffer...
+the fifty-year-old who has just lost his job at IBM doesn't really care about the prime interest rate" (Tolchin, 54).
+Therefore, even the positive statistics the Biden administration could boast would not have helped them much among people who felt pessimistic about their personal finances.\
+
+The Biden administration was also forced to thread a hideously complicated needle on the issue of the Israel-Gaza war, which "galvanized many US voters in opposite directions" (Ward, 895).
+Their attempts to mitigate the issue alienated both Israeli supporters, who wanted them to more aggressively support Israel, and Palestinian supporters, who wanted the administration to rein Israel in.
+Ultimately, the crisis benefited the opposition campaign from both ends.\
+
+## Theory and Hypotheses
+**Theory:** I suspect that a combination of economic status, education, foreign policy views, and concern about crime rates and immigration will have strong correlations.\
+\
 **Project GitHub repository:** https://github.com/Scimitaria/ResearchMethods-FinalProject/ \
 <small>
-Note on GitHub usage for Dr. Bussing: Only a few of the features of GitHub are relevant to this project. 
+**Note on GitHub usage for Dr. Bussing:** Only a few of the features of GitHub are relevant to this project. 
 The link itself takes you to a directory with all of the project files. 
 Clicking on one of the files takes you to the code/data, with an opportunity to download the file. 
 If for whatever reason you want to view past work in the repository, you can click ‘<x> commits’ in the top right corner, select a commit, and press ‘browse files’.
 </small>
 
 **Variables:** The independent variables I will focus on will be economic worry (a 5-point scale in descending order of worry), education (a 16-point scale from least to most educated), support for aid to Ukraine and Israel (each a 5-point scale in decreasing order of support), importance of crime (a 5-point scale in decreasing order of importance), and support for immigration (a 5-point scale in decreasing order of support).\
+\
 I have made tables of two potential dependent variables (people who voted for a candidate despite having a higher thermometer rating for the other, and people who voted for a candidate despite favoring policies they ideologically agree with) in the Preliminary Data section.
 I elected to go with the latter for my dependent variable, as it has almost double the sample size (223 vs 116). 223 is still worryingly small, but it'll do for a start.
 As I'm using the ANES, my unit of analysis is an individual respondent.\
+\
 **Methodology:** For the moment I'm using cor.test, as it provides both a correlation coefficient and p-value, allowing me to measure relationship magnitude, direction, and significance.\
 
-## Data and Methods - WRITE MORE
+**Hypotheses:**\
+
+- Financial security will have an inverse correlation with partisan defection\
+- Education will have an inverse correlation with partisan defection\
+- Foreign policy and concern about crime rates and immigration will have a nonspecific correlation\
+
+## Data and Methods
+
 #### Preliminary Data
 ```{r}
 printf("mean Harris thermometer rating",mean(anes$harrisTherm,na.rm=T))
@@ -137,6 +209,43 @@ summary(lm(formula = switch ~ worry + education + ukraine + israel + crime + imm
 ```
 None of the coefficients are statistically significant.
 
-## Results - TODO
+## Results
+There was a slight negative correlation between economic worry and switch voter status.
+This was surprising to me, as high levels of concern about the economy were a major factor in voting decisions.
+However, considering the findings of Aldrich et al in the Literature Review, we could consider economic security a kind of defensive confidence.
+Perhaps, therefore, the confidence afforded by higher economic stability emboldens voters to consider alternative candidates based on social positions.
 
-## Conclusion - TODO
+There was also a negative correlation between education level and switch voter status.
+This is more in line with expectations - people with high levels of education are likely to have more firm political positions,
+while less well-educated people are more likely to be susceptible to political manipulation.
+This also makes it less likely that many white-collar Republicans voted for the Democrats,
+which would help to explain their loss.\
+
+None of the rest of the results were statistically significant.\
+
+**Review of Hypotheses:**\
+
+- Financial security will have an inverse correlation with partisan defection: FALSE (positive correlation)\
+- Education will have an inverse correlation with partisan defection: TRUE\
+- Foreign policy and concern about crime rates and immigration will have a nonspecific correlation: FALSE (statistically insignificant)\
+
+## Conclusion
+The main issue I encountered in this project was small sample size.
+With an overall switch voter count of 223, 
+and considering not every respondent answered every question,
+finding statistically significant results,
+and therefore confirming the hypothesis,
+was always going to be an uphill battle.
+In spite of this, however, I was still able to obtain two data points.\
+
+Firstly, greater financial security leads to a higher likelihood of partisan defection.
+This is likely due to higher defensive confidence enabling more in-depth consideration of opposing viewpoints,
+as well as greater freedom to prioritize social issues that may not align with financial ones.\
+
+Secondly, lower education levels likewise lead to a higher likelihood of partisan defection.
+In this partisan environment, it is unlikely that a highly educated position would have sufficient political uncertainty as to change their mind about the president,
+whereas less well-educated people are more susceptible to mass manipulation tactics, appeals to emotion, and short-term gratification.\
+
+This research was limited in scope, both by design and by circumstance.
+Further studies would benefit immensely from a higher sample size,
+as well as a broader analysis of more political issues and demographic information (eg race, gender, religion).
