@@ -45,12 +45,14 @@ After this, I will run correlation tests with switch voter status for each issue
 I will then state my results and conclusions derived.\
 
 ## Literature Review
+**Annotated Bibliography:** https://docs.google.com/document/d/1BCA59tdXM1fL5v1_3I29hz92imOoqkkioqmacnzB8xg/edit?tab=t.0
+
 "People who are high in defensive confidence [their ability to defend their political views] are more likely to examine counter-attudinal information and, as a result, change those attitudes.
 This finding contradicts the common wisdom that compared to individuals who doubt their defensive abilities, those who are confident will be *less* likely to change their attitudes" (Aldrich et al, 46).
 Furthermore, an analysis of the 2006 midterm ANES data showed "that one's confidence in being able to defend against challenges to one's attitudes increases the likelihood of changing preferences by defecting from a political party" (Ibid, 55).
 It goes without saying that this is highly pertinent to the project at hand.
 
-Ferreira's research confirmed "a relationship between the electoral and party face or presidentialization" (De Silva, 811).
+Ferreira de Silva's research confirmed "a relationship between the electoral and party face or presidentialization" (Ferreira de Silva, 811).
 Johann et al concurred that "personal campaign efforts pay off. It almost seems as if interpersonal party contact“shuts down” people’s defense mechanisms with regard to information selection and processing, and thus makes them more susceptible to persuasion efforts" (Johann et al, 275).
 The Republicans had no issue with this - Trump had been the undisputed face of the party since 2016.
 The Democrats, on the other hand, were severely weakened by their failure in this area.
@@ -66,7 +68,7 @@ Specifically, Christian nationalism moved Black Americans rightward on issues li
 Fraga notes that "rates of participation for African Americans, Latinos, and Asian Americans lagged behind that of Whites for most of American history"
 and that even today, "Latino and Asian American turnout is as much as twenty percentage points lower than White and Black turnout" (Fraga, 73).\
 
-Ward points out that "neither 2024 candidate established a strong, compelling antipoverty platform" (894).
+A major weakness of both campaigns was that "neither 2024 candidate established a strong, compelling antipoverty platform" (Ward, 894).
 Considering the importance of economic issues to voters, this was a major failing of both campaigns.
 However, due to her affiliation with the incumbent administration, 
 Harris would have been hurt more by her failure to convince on affordability.
