@@ -45,7 +45,8 @@ After this, I will run correlation tests with switch voter status for each issue
 I will then state my results and conclusions derived.\
 
 ## Literature Review
-**Annotated Bibliography:** https://docs.google.com/document/d/1BCA59tdXM1fL5v1_3I29hz92imOoqkkioqmacnzB8xg/edit?tab=t.0
+**Annotated Bibliography:**\
+https://docs.google.com/document/d/1BCA59tdXM1fL5v1_3I29hz92imOoqkkioqmacnzB8xg/edit?tab=t.0
 
 "People who are high in defensive confidence [their ability to defend their political views] are more likely to examine counter-attudinal information and, as a result, change those attitudes.
 This finding contradicts the common wisdom that compared to individuals who doubt their defensive abilities, those who are confident will be *less* likely to change their attitudes" (Aldrich et al, 46).
@@ -74,7 +75,7 @@ However, due to her affiliation with the incumbent administration,
 Harris would have been hurt more by her failure to convince on affordability.
 Considering that "respondents who perceive the national economy to be performing well tend to prefer candidates from the party controlling the White House, whereas respondents who perceive the national economy is performing badly typically choose candidates from the out party" (Best, Kreuger 160),
 Trump just had to promise generic change, and he would win a fair portion of low-income voters.
-As it happens, Trump's populist rhetoric was a strong factor in him winning with voters on the economy (Perry et al, 230).
+As it happens, Trump's populist rhetoric was a strong factor in him winning with voters on the economy (Perry et al, 230).\
 It's worth noting that national economic data cannot necessarily explain this factor,
 as ""macroeconomic" figures fail woefully when it comes to explaining to individuals and their families why some people benefit while others suffer...
 the fifty-year-old who has just lost his job at IBM doesn't really care about the prime interest rate" (Tolchin, 54).
