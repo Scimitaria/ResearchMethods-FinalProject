@@ -1,1 +1,5 @@
 *.[Rr]md linguist-detectable
+.md linguist-detectable
+.gitattributes linguist-detectable
+.gitignore linguist-detectable
+.csv linguist-detectable
