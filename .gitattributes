@@ -5,5 +5,3 @@
 .gitattributes linguist-language=Git Attributes
 .gitignore linguist-detectable=true
 .gitignore linguist-language=Ignore List
-*.csv linguist-detectable=true
-*.csv linguist-language=CSV
