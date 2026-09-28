@@ -1,7 +1,9 @@
 *.[Rr]md linguist-detectable=true
 *.md linguist-detectable=true
 *.md linguist-language=Markdown
-*.gitattributes linguist-detectable=true
-*.gitignore linguist-detectable=true
+.gitattributes linguist-detectable=true
+.gitattributes linguist-language="Git Attributes"
+.gitignore linguist-detectable=true
+.gitignore linguist-language="Ignore List"
 *.csv linguist-detectable=true
 *.csv linguist-language=CSV
